@@ -15,13 +15,23 @@ public class DemoQA {
         driver.get("https://demoqa.com/text-box");
         System.out.println("Open Browser,open url");
 
+        String titlePage = driver.findElement(By.className("main-header")).getText();//scraping
+        System.out.println(titlePage);
+        driver.getTitle();
+
         driver.findElement(By.id("userName")).sendKeys("JuaraCoding");
         driver.findElement(By.id("userEmail")).sendKeys("info@juaracoding.com");
         driver.findElement(By.id("currentAddress")).sendKeys("Jakarta");
         js.executeScript("window.scrollBy(0,500)");
         driver.findElement(By.id("permanentAddress")).sendKeys("Jakarta");
-
         driver.findElement(By.id("submit")).click();
+
+        //buat assert menggunakan if
+        if (titlePage.equalsIgnoreCase("text box")){
+            System.out.println("Result testing pass");
+        } else {
+            System.out.println("Result testing fail");
+        }
 
         delay();
         driver.close();
