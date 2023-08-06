@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 public class AddToCart {
@@ -18,7 +19,9 @@ public class AddToCart {
         driver.findElement(By.name("login")).click();
 
         driver.findElement(By.className("custom-logo")).click();
-        driver.findElement(By.className("noo-thumbnail-product hover-device")).click();
+        WebElement element = driver.findElement(By.cssSelector("a[href='https://shop.demoqa.com/product/pink-drop-shoulder-oversized-t-shirt/']"));
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).click().perform();
 
         // Memilih ukuran (size) dari dropdown
         WebElement sizeDropdownElement = driver.findElement(By.id("pa_size")); // id sesuai dengan id dropdown size
