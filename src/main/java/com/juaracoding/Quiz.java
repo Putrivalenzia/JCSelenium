@@ -14,7 +14,7 @@ public class Quiz {
         WebDriver driver = new ChromeDriver();
         driver.get("https://shop.demoqa.com/my-account/");
 
-        driver.findElement(By.id("username")).sendKeys("puri");
+        driver.findElement(By.id("username")).sendKeys("putri");
         driver.findElement(By.id("password")).sendKeys("999Putri!");
         driver.findElement(By.name("login")).click();
 
