@@ -1,6 +1,7 @@
 package com.juaracoding;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -39,13 +40,11 @@ public class AddToCart {
 
         // Buat assert menggunakan if
         // Cek apakah ada elemen dengan class "cart-empty"
-        WebElement cartEmptyElement = driver.findElement(By.className("cart-empty woocommerce-info"));
-        if (cartEmptyElement.isDisplayed()) {
-            System.out.println("Add to Cart Gagal: Cart kosong");
-        } else {
+        if (driver.findElements(By.className("cart-empty")).isEmpty()) {
             System.out.println("Add to Cart Berhasil");
+        } else {
+            System.out.println("Add to Cart Gagal");
         }
-
 
         driver.quit();
 

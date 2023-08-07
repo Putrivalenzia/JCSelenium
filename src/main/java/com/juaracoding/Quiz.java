@@ -14,15 +14,16 @@ public class Quiz {
         WebDriver driver = new ChromeDriver();
         driver.get("https://shop.demoqa.com/my-account/");
 
-        driver.findElement(By.id("username")).sendKeys("putri");
+        driver.findElement(By.id("username")).sendKeys("puri");
         driver.findElement(By.id("password")).sendKeys("999Putri!");
         driver.findElement(By.name("login")).click();
 
 
-        //buat assert menggunakan if
-        String welcomeMessage = driver.findElement(By.className("woocommerce-MyAccount-content")).getText();//scraping
-        if (welcomeMessage.contains("Hello")) {
-            System.out.println("Login successful! Welcome message displayed: " + welcomeMessage);
+        // Buat assert menggunakan if
+        // Cek apakah ada elemen dengan class "woocommerce-error"
+
+        if (driver.findElements(By.className("woocommerce-error")).isEmpty()) {
+            System.out.println("Login successful!");
         } else {
             System.out.println("Login failed!");
         }
