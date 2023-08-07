@@ -19,22 +19,20 @@ public class AddToCart {
         driver.findElement(By.name("login")).click();
 
         driver.findElement(By.className("custom-logo")).click();
-        WebElement element = driver.findElement(By.cssSelector("a[href='https://shop.demoqa.com/product/pink-drop-shoulder-oversized-t-shirt/']"));
-        Actions actions = new Actions(driver);
-        actions.moveToElement(element).click().perform();
+        driver.findElement(By.linkText("TOKYO TALKIES")).click();
 
         // Memilih ukuran (size) dari dropdown
-        WebElement sizeDropdownElement = driver.findElement(By.id("pa_size")); // id sesuai dengan id dropdown size
+        WebElement sizeDropdownElement = driver.findElement(By.id("color")); // id sesuai dengan id dropdown size
         Select sizeDropdown = new Select(sizeDropdownElement);
-        sizeDropdown.selectByVisibleText("Large");
+        sizeDropdown.selectByVisibleText("Red");
 
         // Memilih warna (color) dari dropdown
-        WebElement colorDropdownElement = driver.findElement(By.id("pa_color")); //  id sesuai dengan id dropdown color
+        WebElement colorDropdownElement = driver.findElement(By.id("size")); //  id sesuai dengan id dropdown color
         Select colorDropdown = new Select(colorDropdownElement);
-        colorDropdown.selectByVisibleText("Beige");
+        colorDropdown.selectByVisibleText("M");
 
         // Klik tombol "Add to cart"
-        driver.findElement(By.className("single_add_to_cart_button button alt wp-element-button")).click();
+        driver.findElement(By.className("single_add_to_cart_button")).click();
 
 
 
