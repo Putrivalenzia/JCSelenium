@@ -34,7 +34,20 @@ public class AddToCart {
         // Klik tombol "Add to cart"
         driver.findElement(By.className("single_add_to_cart_button")).click();
 
+        // Klik cart
+        driver.findElement(By.className("icon_bag_alt")).click();
 
+        // Buat assert menggunakan if
+        // Cek apakah ada elemen dengan class "cart-empty"
+        WebElement cartEmptyElement = driver.findElement(By.className("cart-empty woocommerce-info"));
+        if (cartEmptyElement.isDisplayed()) {
+            System.out.println("Add to Cart Gagal: Cart kosong");
+        } else {
+            System.out.println("Add to Cart Berhasil");
+        }
+
+
+        driver.quit();
 
 
     }
